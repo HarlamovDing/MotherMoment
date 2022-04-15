@@ -1,24 +1,92 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import HomePage from './pages/Home';
+import { AuthModal } from './components/Modals/AuthModal';
+import { RecoveryModal } from './components/Modals/RecoveryModal';
+import { Transition } from 'react-transition-group';
+import { useSelector } from 'react-redux';
+import { ThankYouModal } from './components/Modals/ThankYouModal';
+import { RegistrationModal } from './components/Modals/RegistrationModal';
+import { RegistrationCompleteModal } from './components/Modals/RegistrationCompleteModal';
+import DocumentTitle from 'react-document-title';
 
 function App() {
+  const registrationModal = useSelector((state) => state.modals.registrationModal)
+  const authModalState = useSelector((state) => state.modals.authModal);
+  const recoveryModalState = useSelector((state) => state.modals.recoveryModal);
+  const thankYouModalState = useSelector((state) => state.modals.thankYouModal);
+  const registrationCompleteState = useSelector((state) => state.modals.registrationCompleteModal);
+  
+  const defaultStyle = {
+    transition: `opacity 200ms ease-in-out`,
+    opacity: 0,
+  }
+  const transitionStyles = {
+    entering: { opacity: 0 },
+    entered:  { opacity: 1 },
+    exiting:  { opacity: 0 },
+    exited:  { opacity: 0 },
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DocumentTitle title="MotherMoment"></DocumentTitle>
+      <HomePage/>
+      <Transition
+        in={authModalState} 
+        timeout={200}
+        unmountOnExit
+      >
+        {
+          state => (
+            <AuthModal style={{ ...defaultStyle, ...transitionStyles[state] }}/>
+          )
+        }
+      </Transition>
+      <Transition
+        in={recoveryModalState} 
+        timeout={200}
+        unmountOnExit
+      >
+        {
+          state => (
+            <RecoveryModal style={{ ...defaultStyle, ...transitionStyles[state] }}/>
+          )
+        }
+      </Transition>
+      <Transition
+        in={thankYouModalState} 
+        timeout={200}
+        unmountOnExit
+      >
+        {
+          state => (
+            <ThankYouModal style={{ ...defaultStyle, ...transitionStyles[state] }}/>
+          )
+        }
+      </Transition>
+      <Transition
+        in={registrationModal} 
+        timeout={200}
+        unmountOnExit
+      >
+        {
+          state => (
+            <RegistrationModal style={{ ...defaultStyle, ...transitionStyles[state] }}/>
+          )
+        }
+      </Transition>
+      <Transition
+        in={registrationCompleteState} 
+        timeout={200}
+        unmountOnExit
+      >
+        {
+          state => (
+            <RegistrationCompleteModal style={{ ...defaultStyle, ...transitionStyles[state] }}/>
+          )
+        }
+      </Transition>
+    </>
   );
 }
 

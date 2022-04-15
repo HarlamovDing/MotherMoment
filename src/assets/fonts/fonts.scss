@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'PF Bague Sans Pro';
+  src: local('PF Bague Sans Pro Bold'), local('PF-Bague-Sans-Pro-Bold'),
+      url('../fonts/PFBagueSansPro.woff2') format('woff2'),
+      url('../fonts/PFBagueSansPro.woff') format('woff'),
+      url('../fonts/PFBagueSansPro.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Bague Sans Pro';
+  src: local('PF Bague Sans Pro Bold'), local('PF-Bague-Sans-Pro-Bold'),
+      url('../fonts/PFBagueSansPro-Medium.woff2') format('woff2'),
+      url('../fonts/PFBagueSansPro-Medium.woff') format('woff'),
+      url('../fonts/PFBagueSansPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Bague Sans Pro';
+  src: local('PF Bague Sans Pro Bold'), local('PF-Bague-Sans-Pro-Bold'),
+      url('../fonts/PFBagueSansPro-Bold.woff2') format('woff2'),
+      url('../fonts/PFBagueSansPro-Bold.woff') format('woff'),
+      url('../fonts/PFBagueSansPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PF Bague Sans Pro';
+  src: local('PF Bague Sans Pro Bold'), local('PF-Bague-Sans-Pro-Bold'),
+      url('../fonts/PFBagueSansPro-Black.woff2') format('woff2'),
+      url('../fonts/PFBagueSansPro-Black.woff') format('woff'),
+      url('../fonts/PFBagueSansPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
